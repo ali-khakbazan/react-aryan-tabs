@@ -5,7 +5,7 @@ import {
   useCallback,
   useEffect,
   useMemo,
-  useState,
+  useState
 } from "react";
 
 type TabsProps = PropsWithChildren<{
@@ -26,7 +26,7 @@ export const Tabs: React.FC<TabsProps> = ({
   activeBorderCollor = "#3498db",
   tabStyles,
   rtl,
-  children,
+  children
 }) => {
   const [borderStyles, setBorderStyles] = useState<{
     width: string;
@@ -50,7 +50,7 @@ export const Tabs: React.FC<TabsProps> = ({
     if (firstTab) {
       setBorderStyles({
         width: `${firstTab?.clientWidth}px`,
-        left: `${firstTab?.offsetLeft}px`,
+        left: `${firstTab?.offsetLeft}px`
       });
     }
   }, []);
@@ -62,7 +62,7 @@ export const Tabs: React.FC<TabsProps> = ({
     if (e) {
       setBorderStyles({
         width: `${e.target.clientWidth}px`,
-        left: `${e.target.offsetLeft}px`,
+        left: `${e.target.offsetLeft}px`
       });
     }
   }, []);
@@ -74,7 +74,7 @@ export const Tabs: React.FC<TabsProps> = ({
       borderBottom: "1px solid #E7E7ED",
       display: "flex",
       alignItems: "center",
-      columnGap: "1.25rem",
+      columnGap: "1.25rem"
     };
 
     if (wrapperStyles) {
@@ -87,11 +87,11 @@ export const Tabs: React.FC<TabsProps> = ({
   // single tab styles
   const tabStylesBox = useMemo(() => {
     const defaultStyles: CSSProperties = {
-      padding: "0.5rem 0",
+      padding: "0.2rem 0",
       cursor: "pointer",
       fontSize: "16px",
       fontWeight: "500",
-      userSelect: "none",
+      userSelect: "none"
     };
 
     if (tabStyles) {
@@ -111,7 +111,7 @@ export const Tabs: React.FC<TabsProps> = ({
       backgroundColor: activeBorderCollor,
       height: "2px",
       bottom: "0px",
-      position: "absolute",
+      position: "absolute"
     };
 
     if (tabBorderStyles) {
@@ -119,7 +119,7 @@ export const Tabs: React.FC<TabsProps> = ({
     }
 
     return defaultStyles;
-  }, [tabBorderStyles, borderStyles?.left, borderStyles?.width, activeBorderCollor]);
+  }, [tabBorderStyles, borderStyles, activeBorderCollor]);
 
   return (
     <div dir={rtl ? "rtl" : "ltr"}>
@@ -134,7 +134,7 @@ export const Tabs: React.FC<TabsProps> = ({
               ...tabStylesBox,
               color:
                 activeTab.tab === item.tab ? "#333333" : "rgba(0, 0, 0, 0.5)",
-              transition: "color 200ms ease-in-out",
+              transition: "color 200ms ease-in-out"
             }}
             onClick={(e) => handleActiveTab(e, item)}
           >
