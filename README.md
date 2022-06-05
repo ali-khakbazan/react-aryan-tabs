@@ -19,16 +19,22 @@ A simple and animated react tabs
 | `tabBorderStyles` | `(styles: CSSProperties) => CSSProperties` | **NO** | a function that takes default styles and returns {...styles, your new styles} |
 
 
-## Usage/Examples
+
+
+
+
+## Usage
+
+
+
+
 
 ```javascript
 import { Tabs, TabPane } from "../components/animated-version";
 
-
 export default function App() {
   return (
     <div className="App">
-      <h1>Animated Version with React Spring</h1>
       <Tabs id="test">
         <TabPane keyProp="test-1" tab="First Tab">
           <p>first tab content</p>
@@ -47,3 +53,11 @@ export default function App() {
 }
 ```
 
+
+## Demo
+
+#### animated example with react spring
+https://codesandbox.io/s/react-aryan-tabs-animated-version-hcl0l7
+
+#### simple example
+https://codesandbox.io/s/react-aryan-tabs-zhcmv0
