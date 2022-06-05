@@ -16,7 +16,7 @@ type TabsProps = PropsWithChildren<{
   tabStyles?: (styles: CSSProperties) => CSSProperties;
   tabBorderStyles?: (styles: CSSProperties) => CSSProperties;
   rtl?: boolean;
-  activeCollor?: string;
+  activeBorderCollor?: string;
 }>;
 
 export const Tabs: React.FC<TabsProps> = ({
@@ -24,7 +24,7 @@ export const Tabs: React.FC<TabsProps> = ({
   bodyClassName,
   wrapperStyles,
   tabBorderStyles,
-  activeCollor = "#3498db",
+  activeBorderCollor = "#3498db",
   tabStyles,
   rtl,
   children,
@@ -115,7 +115,7 @@ export const Tabs: React.FC<TabsProps> = ({
       right: borderStyles?.left ? "unset" : "8px",
       left: borderStyles?.left ?? "unset",
       width: borderStyles?.width ?? "40px",
-      backgroundColor: activeCollor,
+      backgroundColor: activeBorderCollor,
       height: "2px",
       bottom: "0px",
       position: "absolute",
@@ -126,7 +126,7 @@ export const Tabs: React.FC<TabsProps> = ({
     }
 
     return defaultStyles;
-  }, [tabBorderStyles, borderStyles?.left, borderStyles?.width, activeCollor]);
+  }, [tabBorderStyles, borderStyles?.left, borderStyles?.width, activeBorderCollor]);
 
   return (
     <div dir={rtl ? "rtl" : "ltr"}>
