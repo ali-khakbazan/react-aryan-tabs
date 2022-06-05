@@ -5,7 +5,7 @@ import {
   useCallback,
   useEffect,
   useMemo,
-  useState,
+  useState
 } from "react";
 import { useTransition, animated } from "react-spring";
 
@@ -27,7 +27,7 @@ export const Tabs: React.FC<TabsProps> = ({
   activeBorderCollor = "#3498db",
   tabStyles,
   rtl,
-  children,
+  children
 }) => {
   const [borderStyles, setBorderStyles] = useState<{
     width: string;
@@ -46,7 +46,7 @@ export const Tabs: React.FC<TabsProps> = ({
   const transitions = useTransition(activeTab, {
     from: { opacity: 0, position: "absolute" as const, display: "block" },
     enter: { opacity: 1, position: "relative" as const, display: "block" },
-    leave: { opacity: 0, position: "absolute" as const, display: "none" },
+    leave: { opacity: 0, position: "absolute" as const, display: "none" }
   });
 
   // set first tab width and left for first render (also we have a default width and left for them)
@@ -57,10 +57,10 @@ export const Tabs: React.FC<TabsProps> = ({
     if (firstTab) {
       setBorderStyles({
         width: `${firstTab?.clientWidth}px`,
-        left: `${firstTab?.offsetLeft}px`,
+        left: `${firstTab?.offsetLeft}px`
       });
     }
-  }, []);
+  }, [id]);
 
   // set clicked tab as active tab and save clicked tab width and left position
   const handleActiveTab = useCallback((e: any, item: any) => {
@@ -69,7 +69,7 @@ export const Tabs: React.FC<TabsProps> = ({
     if (e) {
       setBorderStyles({
         width: `${e.target.clientWidth}px`,
-        left: `${e.target.offsetLeft}px`,
+        left: `${e.target.offsetLeft}px`
       });
     }
   }, []);
@@ -81,7 +81,7 @@ export const Tabs: React.FC<TabsProps> = ({
       borderBottom: "1px solid #E7E7ED",
       display: "flex",
       alignItems: "center",
-      columnGap: "1.25rem",
+      columnGap: "1.25rem"
     };
 
     if (wrapperStyles) {
@@ -94,11 +94,11 @@ export const Tabs: React.FC<TabsProps> = ({
   // single tab styles
   const tabStylesBox = useMemo(() => {
     const defaultStyles: CSSProperties = {
-      padding: "0.5rem 0",
+      padding: "0.2rem 0",
       cursor: "pointer",
       fontSize: "16px",
       fontWeight: "500",
-      userSelect: "none",
+      userSelect: "none"
     };
 
     if (tabStyles) {
@@ -118,7 +118,7 @@ export const Tabs: React.FC<TabsProps> = ({
       backgroundColor: activeBorderCollor,
       height: "2px",
       bottom: "0px",
-      position: "absolute",
+      position: "absolute"
     };
 
     if (tabBorderStyles) {
@@ -126,7 +126,7 @@ export const Tabs: React.FC<TabsProps> = ({
     }
 
     return defaultStyles;
-  }, [tabBorderStyles, borderStyles?.left, borderStyles?.width, activeBorderCollor]);
+  }, [tabBorderStyles, borderStyles, activeBorderCollor]);
 
   return (
     <div dir={rtl ? "rtl" : "ltr"}>
@@ -141,7 +141,7 @@ export const Tabs: React.FC<TabsProps> = ({
               ...tabStylesBox,
               color:
                 activeTab.tab === item.tab ? "#333333" : "rgba(0, 0, 0, 0.5)",
-              transition: "color 200ms ease-in-out",
+              transition: "color 200ms ease-in-out"
             }}
             onClick={(e) => handleActiveTab(e, item)}
           >
@@ -159,9 +159,9 @@ export const Tabs: React.FC<TabsProps> = ({
               opacity: opacity,
               position: position,
               inset: "0",
-              display: display,
+              display: display
             }}
-            className={`${bodyClassName} fade`}
+            className={`${bodyClassName}`}
           >
             {item?.children}
           </animated.div>
